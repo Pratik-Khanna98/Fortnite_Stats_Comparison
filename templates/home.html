@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fortnite Stats Comparison</title>
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<body>
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Fortnite Statistics Comparison
+      </h1>
+      <h2 class="subtitle">
+        Compare the stats of the players
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <form method="post" action="/">
+<div class="field is-grouped">
+  <p class="control is-expanded">
+      <input type="hidden", name="player1name" value="{% if player1 %} {{ player1 }} {% endif %}">
+    <input class="input is-rounded" name="playername" type="text" placeholder="Search Player Name">
+  </p>
+</div>
+
+<div class="field is-grouped is-grouped-centered">
+  <p class="control">
+    <button class="button is-primary">
+      Search
+    </button>
+  </p>
+</div>
+        </form>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <div class="tile is-ancestor">
+  <div class="tile is-vertical is-8 ">
+    <div class="tile">
+        {% if player1 %}
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-danger">
+          <p class="title">{{ player1 }}</p><br>
+          <p class="subtitle">Wins: {{ player1_stats['Wins'] }}</p>
+            <p class="subtitle">Wins%: {{ player1_stats['Win%'] }}</p>
+            <p class="subtitle">Kills: {{ player1_stats['Kills'] }}</p>
+            <p class="subtitle">K/D: {{ player1_stats['K/D'] }}</p>
+            <p class="subtitle">Matches Played: {{ player1_stats['Matches Played'] }}</p>
+        </article>
+      </div>
+        {% endif %}
+        {% if player2 %}
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <p class="title">{{ player2 }}</p><br>
+          <p class="subtitle">Wins: {{ player2_stats['Wins'] }}</p>
+            <p class="subtitle">Wins%: {{ player2_stats['Win%'] }}</p>
+            <p class="subtitle">Kills: {{ player2_stats['Kills'] }}</p>
+            <p class="subtitle">K/D: {{ player2_stats['K/D'] }}</p>
+            <p class="subtitle">Matches Played: {{ player2_stats['Matches Played'] }}</p>
+        </article>
+      </div>
+        {% endif %}
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+
+<div class="tile is-ancestor">
+  <div class="tile">
+    <!-- Add content or other tiles -->
+  </div>
+  <div class="tile">
+    <!-- Add content or other tiles -->
+  </div>
+</div>
+
+</body>
+</html>
